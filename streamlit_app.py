@@ -7,7 +7,7 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 
 
-st.title("Üretim Gerçekleşen Paneli")
+st.title("Üretim Hedef-Gerçekleşen")
 
 password = st.text_input("Parola girin", type="password")
 
@@ -16,10 +16,10 @@ if password:
         st.success("Giriş başarılı!")
 
 # csv dosyasını yükle
-        dosya_adi = "uretimgerc.csv"
-        df_all = pd.read_csv(dosya_adi)
-        df = df_all
-        df["TARIH"] = pd.to_datetime(df["TARIH"])
+        url = "https://drive.google.com/uc?id=1if6z9stm-oQBMBC5SIxGHNztTjdaA0bM&export=download"
+        df = pd.read_csv(url)
+
+        df["TARIH"] = pd.to_datetime(df["TARIH"], errors="coerce")
         
 
     # Filtreler
